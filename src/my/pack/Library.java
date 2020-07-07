@@ -1,10 +1,10 @@
-package my.pack;
+package my.pack;// пакеты, минимум 4 уровня
 
 import java.util.*;
 import java.io.*;
 
 public class Library extends Book {
-	public List<Book> books = new ArrayList<Book>();
+	public List<Book> books = new ArrayList<Book>();// атрибут доступа public , а не private
 
 	public Library() {
 	}
@@ -20,7 +20,7 @@ public class Library extends Book {
 	public List<Book> getBooks() {
 		return books;
 	}
-
+// решение защитано
 	public void getListOfBooksFromFile(String filePath, String delimeterSymbol) throws IOException {
 
 		BufferedReader reader = new BufferedReader(new FileReader(filePath));
@@ -59,7 +59,7 @@ public class Library extends Book {
 		if (searchedBooks.isEmpty()) {
 			System.out.println("There are no books with author " + author + " in Library");
 		}
-		
+	// решение защитано (уже не пишу юнит, т.к. защание объединяет 3 юнита)	
 		searchedBooks.sort(Comparator.comparingInt(Book::getYearOfPublish));
 //		Collections.sort(searchedBooks, new Comparator<Book>)() {
 //			@Override
@@ -129,7 +129,7 @@ public class Library extends Book {
 			library.getListOfBooksFromFile("src/resources/books.txt", ",");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace();// а вот про исключения пересмотри, ты гасишь исключение и дальше выполняешь код, как будто ничего не произошло
 		}
 
 		System.out.println("Full list of books: ");
